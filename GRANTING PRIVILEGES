@@ -1,0 +1,24 @@
+GRANTING PRIVILEGES STATEMENTS
+ 
+-- Create Users
+CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'admin_pass';
+CREATE USER 'data_entry'@'localhost' IDENTIFIED BY 'data_pass';
+CREATE USER 'analyst'@'localhost' IDENTIFIED BY 'analyst_pass';
+CREATE USER 'viewer'@'localhost' IDENTIFIED BY 'viewer_pass';
+ 
+-- Grant all privileges to the admin user
+GRANT ALL PRIVILEGES ON *.* TO 'admin_user'@'localhost' WITH GRANT OPTION;
+ 
+-- Grant insert, update, and select privileges to the data entry user on specific tables
+GRANT INSERT, UPDATE, SELECT ON Candidate TO 'data_entry'@'localhost';
+GRANT INSERT, UPDATE, SELECT ON Application TO 'data_entry'@'localhost';
+GRANT INSERT, UPDATE, SELECT ON Document TO 'data_entry'@'localhost';
+ 
+-- Grant select and update privileges to the analyst on specific tables
+GRANT SELECT, UPDATE ON Examination TO 'analyst'@'localhost';
+GRANT SELECT, UPDATE ON Result TO 'analyst'@'localhost';
+ 
+-- Grant select privileges to the viewer on specific tables
+GRANT SELECT ON Candidate TO 'viewer'@'localhost';
+GRANT SELECT ON Examination TO 'viewer'@'localhost';
+GRANT SELECT ON Result TO 'viewer'@'localhost';
