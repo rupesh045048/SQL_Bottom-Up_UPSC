@@ -26,7 +26,7 @@ CREATE TABLE Candidate (
     CandidateID INTEGER PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,
     DateOfBirth DATE NOT NULL,
-    Gender CHAR(1) NOT NULL CHECK (Gender IN ('M', 'F', 'O')), -- M: Male, F: Female, O: Other
+    Gender Enum NOT NULL CHECK (Gender IN ('M', 'F', 'O')), -- M: Male, F: Female, O: Other
     Address TEXT,
     Phone VARCHAR(15),
     Email VARCHAR(100) UNIQUE NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE Candidate (
 
 -- Create Examination Table
 CREATE TABLE Examination (
-    ExamID INTEGER PRIMARY KEY,
+    ExamID char PRIMARY KEY,
     ExamName VARCHAR(100) NOT NULL,
     ExamDate DATE NOT NULL,
     ExamLocation VARCHAR(100) NOT NULL
