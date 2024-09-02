@@ -2,19 +2,19 @@
 -- Create Candidate Table
 CREATE TABLE Candidate (
     CandidateID INTEGER PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
+    Name VARCHAR(30) NOT NULL,
     DateOfBirth DATE NOT NULL,
     Gender Enum NOT NULL CHECK (Gender IN ('M', 'F', 'O')), -- M: Male, F: Female, O: Other
     Address TEXT,
     Phone VARCHAR(15),
-    Email VARCHAR(100) UNIQUE NOT NULL,
+    Email VARCHAR(50) UNIQUE NOT NULL,
     Nationality VARCHAR(50)
 );
 
 -- Create Examination Table
 CREATE TABLE Examination (
     ExamID char PRIMARY KEY,
-    ExamName VARCHAR(100) NOT NULL,
+    ExamName VARCHAR(30) NOT NULL,
     ExamDate DATE NOT NULL,
     ExamLocation VARCHAR(100) NOT NULL
 );
@@ -36,7 +36,7 @@ CREATE TABLE Payment (
     ApplicationID INTEGER NOT NULL,
     PaymentDate DATE NOT NULL,
     Amount DECIMAL(10, 2) NOT NULL,
-    PaymentMethod VARCHAR(50) NOT NULL CHECK (PaymentMethod IN ('Credit Card', 'Debit Card', 'PayPal', 'Bank Transfer')),
+    PaymentMethod VARCHAR(30) NOT NULL CHECK (PaymentMethod IN ('Credit Card', 'Debit Card', 'PayPal', 'Bank Transfer')),
     FOREIGN KEY (ApplicationID) REFERENCES Application(ApplicationID)
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE Payment (
 CREATE TABLE Document (
     DocumentID INTEGER PRIMARY KEY,
     ApplicationID INTEGER NOT NULL,
-    DocumentType VARCHAR(50) NOT NULL,
+    DocumentType VARCHAR(30) NOT NULL,
     DocumentFile BLOB NOT NULL, -- Assuming the file is stored as binary data
     FOREIGN KEY (ApplicationID) REFERENCES Application(ApplicationID)
 );
