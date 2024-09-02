@@ -1,26 +1,4 @@
--- Insert into Candidate
-INSERT INTO Candidate (Name, DateOfBirth, Gender, Address, Phone, Email, Nationality)
-VALUES
-    ('John Doe', '1990-01-15', 'M', '123 Elm Street, Springfield', '555-1234', 'john.doe@example.com', 'American'),
-    ('Jane Smith', '1985-05-22', 'F', '456 Oak Avenue, Rivertown', '555-5678', 'jane.smith@example.com', 'Canadian');
 
--- Insert into Examination
-INSERT INTO Examination (ExamName, ExamDate, ExamLocation)
-VALUES
-    ('Civil Services Preliminary Exam', '2024-09-10', 'New York City'),
-    ('Civil Services Main Exam', '2024-12-05', 'San Francisco');
-
--- Insert into Application
-INSERT INTO Application (CandidateID, ExamID, ApplicationDate, Status)
-VALUES
-    (1, 1, '2024-08-01', 'Submitted'),
-    (2, 2, '2024-08-15', 'Under Review');
-
--- Insert into Payment
-INSERT INTO Payment (ApplicationID, PaymentDate, Amount, PaymentMethod)
-VALUES
-    (1, '2024-08-02', 1000.00, 'Credit Card'),
-    (2, '2024-08-16', 1200.00, 'PayPal');
 -- Create Candidate Table
 CREATE TABLE Candidate (
     CandidateID INTEGER PRIMARY KEY,
@@ -80,7 +58,29 @@ CREATE TABLE Result (
     FOREIGN KEY (ApplicationID) REFERENCES Application(ApplicationID)
 );
 
+-- Insert into Candidate
+INSERT INTO Candidate (Name, DateOfBirth, Gender, Address, Phone, Email, Nationality)
+VALUES
+    ('John Doe', '1990-01-15', 'M', '123 Elm Street, Springfield', '555-1234', 'john.doe@example.com', 'American'),
+    ('Jane Smith', '1985-05-22', 'F', '456 Oak Avenue, Rivertown', '555-5678', 'jane.smith@example.com', 'Canadian');
 
+-- Insert into Examination
+INSERT INTO Examination (ExamName, ExamDate, ExamLocation)
+VALUES
+    ('Civil Services Preliminary Exam', '2024-09-10', 'New York City'),
+    ('Civil Services Main Exam', '2024-12-05', 'San Francisco');
+
+-- Insert into Application
+INSERT INTO Application (CandidateID, ExamID, ApplicationDate, Status)
+VALUES
+    (1, 1, '2024-08-01', 'Submitted'),
+    (2, 2, '2024-08-15', 'Under Review');
+
+-- Insert into Payment
+INSERT INTO Payment (ApplicationID, PaymentDate, Amount, PaymentMethod)
+VALUES
+    (1, '2024-08-02', 1000.00, 'Credit Card'),
+    (2, '2024-08-16', 1200.00, 'PayPal');
 -- Insert into Document
 INSERT INTO Document (ApplicationID, DocumentType, DocumentFile)
 VALUES
